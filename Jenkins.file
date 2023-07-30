@@ -1,8 +1,8 @@
 pipeline {
     agent { label "projecta"}
     
-    triggers{
-        pollscm("* * * * *")
+    triggers {
+        pollSCM("* * * * *")
     } 
 
     stages {

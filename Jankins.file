@@ -1,0 +1,29 @@
+pipeline {
+    agent { label "projecta"}
+    
+    trigger {
+        pollcsm("* * * * *")
+    } 
+
+    stages {
+        stage('stage1') {
+            steps {
+                echo 'clone the git repo link'
+                git branch: 'main', url: 'https://github.com/naveenkumarnk591504/primecare.com.git'
+            }
+        }
+        stage('stage2') {
+            steps {
+                echo 'verify the file it is cloned'
+                sh 'pwd'
+                sh 'ls'
+            }
+        }
+        stage('stage3') {
+            steps {
+                echo 'move the cloned file to httpd'
+                sh 'scp -i /home/ec2-user/key.pem -r /var/jenkins/workspace/primcare.com/* ec2-user@65.0.3.108:/var/www/html'
+            }
+        }
+    }
+}

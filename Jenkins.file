@@ -2,7 +2,7 @@ pipeline {
     agent { label "projecta"}
     
     triggers{
-        pollcsm("* * * * *")
+        pollscm("* * * * *")
     } 
 
     stages {

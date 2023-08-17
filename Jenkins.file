@@ -22,7 +22,7 @@ pipeline {
         stage('stage3') {
             steps {
                 echo 'move the cloned file to httpd'
-                sh 'scp -i /home/ec2-user/key.pem -r /var/jenkins/workspace/primcare.com/* ec2-user@65.0.3.108:/var/www/html'
+                sh 'scp -i /home/ec2-user/naveenkumar.pem -r /var/jenkins/workspace/htmlproject/* ec2-user@10.0.1.51:/var/www/html'
             }
         }
     }
